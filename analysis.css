@@ -1,0 +1,206 @@
+/* 基础重置 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 全局样式 */
+  body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* 页眉 */
+  header {
+    background: rgba(255,255,255,0.95);
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #007BFF;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  nav ul li {
+    margin-left: 20px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+  }
+  nav ul li a:hover {
+    color: #007BFF;
+  }
+  nav ul li a.cta {
+    background: #007BFF;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+  }
+  
+  /* 首屏横幅 */
+  .hero {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    margin-top: 80px; /* 补偿固定页眉高度 */
+    position: relative;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  .hero h1, .hero p, .hero a {
+    position: relative;
+    z-index: 2;
+  }
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  .btn {
+    padding: 12px 30px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  .btn:hover {
+    background: #0056b3;
+  }
+  
+  /* 平台简介 */
+  .introduction {
+    padding: 60px 20px;
+    text-align: center;
+    background: #fff;
+  }
+  .introduction h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #007BFF;
+  }
+  .introduction p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .introduction a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #007BFF;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+  }
+  .introduction a:hover {
+    border-bottom: 1px solid #007BFF;
+  }
+  
+  /* 服务特色 */
+  .features {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .features .feature {
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: inline-block;
+    vertical-align: top;
+  }
+  .features .feature h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #007BFF;
+  }
+  .features .feature p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* CTA 区域 */
+  .cta-area {
+    background: linear-gradient(135deg, #007BFF, #00C6FF);
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .cta-area h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .cta-area a.btn {
+    background: #fff;
+    color: #007BFF;
+  }
+  .cta-area a.btn:hover {
+    background: #f4f4f4;
+  }
+  
+  /* 页脚 */
+  footer {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  footer p {
+    margin: 5px 0;
+  }
+  
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .features .feature {
+      width: 80%;
+      display: block;
+      margin: 20px auto;
+    }
+    .hero h1 {
+      font-size: 36px;
+    }
+    .hero p {
+      font-size: 18px;
+    }
+  }
+  
