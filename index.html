@@ -1,65 +1,97 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Colormatch - 首页</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Colormatch - Home</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    /* 新增样式，仅用于调整 introduction 部分 */
+    .introduction .intro-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .introduction .intro-text {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+    .introduction .intro-image {
+      flex: 1 1 300px;
+      padding: 20px;
+      text-align: center;
+    }
+    .introduction .intro-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
-  <!-- 页眉 -->
+  <!-- Header -->
   <header>
     <div class="logo">Colormatch</div>
     <nav>
       <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="analysis.html" class="cta">AI色彩分析</a></li>
-        <li><a href="consultation.html">专家咨询</a></li>
-        <li><a href="about.html">关于我们</a></li>
-        <li><a href="faq.html">常见问题</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analysis.html" class="cta">AI Color Analysis</a></li>
+        <li><a href="consultation.html">Expert Consultation</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- 首屏横幅 -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>发现你的专属色彩，点亮个人风采</h1>
-    <p>AI与专家结合的个人色彩分析，助你焕发自信魅力。</p>
-    <a href="analysis.html" class="btn">开始分析 →</a>
+    <h1>Discover Your Signature Colors, Illuminate Your Style</h1>
+    <p>Personal color analysis powered by AI and expert advice to boost your confidence.</p>
+    <a href="analysis.html" class="btn">Start Analysis →</a>
   </section>
 
-  <!-- 平台简介 -->
+  <!-- Platform Introduction (重新排版为左右布局) -->
   <section class="introduction">
-    <h2>关于 Colormatch</h2>
-    <p>Colormatch 利用 AI 算法为你生成专属色彩方案，并由专业色彩顾问提供个性化建议。无论是挑选衣橱还是选购妆容，我们帮助你找到最适合你的色彩。</p>
-    <a href="about.html">了解更多</a>
+    <div class="intro-container">
+      <div class="intro-text">
+        <h2>About Colormatch</h2>
+        <p>Colormatch uses advanced AI algorithms to generate personalized color palettes for you, supported by professional color consultants. Whether you're updating your wardrobe or choosing makeup, we help you find the perfect colors that suit you best.</p>
+        <a href="about.html">Learn More</a>
+      </div>
+      <div class="intro-image">
+        <img src="images/hero-bg-custom.jpg" alt="Custom Hero Image">
+      </div>
+    </div>
   </section>
 
-  <!-- 服务特色 -->
+  <!-- Features Section -->
   <section class="features">
     <div class="feature">
-      <h3>上传照片</h3>
-      <p>上传一张清晰正脸照，启动 AI 色彩分析。</p>
+      <h3>Upload Photo</h3>
+      <p>Upload a clear frontal photo to kickstart the AI color analysis.</p>
     </div>
     <div class="feature">
-      <h3>获取色卡</h3>
-      <p>几秒钟生成你的专属色彩调色板。</p>
+      <h3>Get Your Palette</h3>
+      <p>Generate your personalized color palette in seconds.</p>
     </div>
     <div class="feature">
-      <h3>专家指导</h3>
-      <p>预约一对一视频咨询，获得专业建议。</p>
+      <h3>Expert Guidance</h3>
+      <p>Schedule one-on-one video consultations to receive professional advice.</p>
     </div>
   </section>
 
-  <!-- CTA 区域 -->
+  <!-- CTA Area -->
   <section class="cta-area">
-    <h2>准备好焕新你的色彩形象了吗？</h2>
-    <a href="analysis.html" class="btn">上传照片开始 →</a>
+    <h2>Ready to transform your color style?</h2>
+    <a href="analysis.html" class="btn">Upload Photo to Begin →</a>
   </section>
 
-  <!-- 页脚 -->
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Colormatch. All rights reserved.</p>
-    <p>联系我们: support@colormatch.com</p>
+    <p>Contact: support@colormatch.com</p>
   </footer>
 </body>
 </html>
