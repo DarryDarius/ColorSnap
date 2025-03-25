@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>分析结果 - Colormatch</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    window.onload = function() {
+      // 从 localStorage 中读取用户上传的照片（Base64 数据）
+      const uploadedPhoto = localStorage.getItem('uploadedPhoto');
+      if (uploadedPhoto) {
+        document.getElementById('resultPhoto').src = uploadedPhoto;
+      } else {
+        document.getElementById('resultPhoto').alt = '未检测到上传照片';
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- 页眉 -->
+  <header>
+    <div class="logo">Colormatch</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="analysis.html" class="cta">AI色彩分析</a></li>
+        <li><a href="consultation.html">专家咨询</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="faq.html">常见问题</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 分析结果 -->
+  <section class="result-section">
+    <h2>分析结果：暖秋型</h2>
+    <p>这是您上传的照片：</p>
+    <!-- 用户上传的照片，将通过 JavaScript 设置 src -->
+    <img id="resultPhoto" src="" alt="上传的照片" width="300">
+    <p>您的肤色和五官特征属于暖色调秋季型，推荐的颜色包括橘棕、橄榄绿、砖红等。</p>
+    <div class="actions">
+      <button onclick="window.location.href='analysis.html'">重新上传照片</button>
+      <button onclick="window.location.href='consultation.html'">预约专家咨询</button>
+      <button id="shareBtn">分享我的色卡</button>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>&copy; 2025 Colormatch. All rights reserved.</p>
+    <p>联系我们: support@colormatch.com</p>
+  </footer>
+
+  <script>
+    // 分享功能：使用 Web Share API 实现分享到 iMessage、Instagram、Facebook 等主流媒体
+    document.getElementById('shareBtn').addEventListener('click', async function() {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: '我的色卡结果',
+            text: '这是我的色卡结果，快来看看吧！',
+            url: window.location.href  // 分享当前页面链接
+          });
+          console.log('分享成功');
+        } catch (error) {
+          console.error('分享失败', error);
+        }
+      } else {
+        // 如果 Web Share API 不支持，则复制链接到剪贴板
+        navigator.clipboard.writeText(window.location.href)
+          .then(() => alert('您的浏览器不支持直接分享，分享链接已复制到剪贴板'))
+          .catch(() => alert('无法复制分享链接，请手动复制'));
+      }
+    });
+  </script>
+</body>
+</html>
