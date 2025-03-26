@@ -1,75 +1,114 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>分析结果 - Colormatch</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Analysis Result - ColorSnap</title>
+  <link rel="stylesheet" href="analysis.css">
+  <style>
+    /* Additional styles for beautifying the Result Page */
+    .result-section {
+      background: #fff;
+      padding: 60px 20px;
+      margin: 120px auto 60px;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .result-section h2 {
+      font-size: 36px;
+      color: #007BFF;
+      margin-bottom: 20px;
+    }
+    .result-section p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+    .result-section .actions button {
+      padding: 12px 30px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background 0.3s;
+    }
+    .result-section .actions button:hover {
+      background: #0056b3;
+    }
+  </style>
   <script>
     window.onload = function() {
-      // 从 localStorage 中读取用户上传的照片（Base64 数据）
+      // Read the uploaded photo (Base64 data) from localStorage
       const uploadedPhoto = localStorage.getItem('uploadedPhoto');
       if (uploadedPhoto) {
         document.getElementById('resultPhoto').src = uploadedPhoto;
       } else {
-        document.getElementById('resultPhoto').alt = '未检测到上传照片';
+        document.getElementById('resultPhoto').alt = 'No uploaded photo detected';
       }
     }
   </script>
 </head>
 <body>
-  <!-- 页眉 -->
+  <!-- Header -->
   <header>
-    <div class="logo">Colormatch</div>
+    <div class="logo">ColorSnap</div>
     <nav>
       <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="analysis.html" class="cta">AI色彩分析</a></li>
-        <li><a href="consultation.html">专家咨询</a></li>
-        <li><a href="about.html">关于我们</a></li>
-        <li><a href="faq.html">常见问题</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analysis.html" class="cta">AI Color Analysis</a></li>
+        <li><a href="consultation.html">Expert Consultation</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- 分析结果 -->
+  <!-- Result Section -->
   <section class="result-section">
-    <h2>分析结果：暖秋型</h2>
-    <p>这是您上传的照片：</p>
-    <!-- 用户上传的照片，将通过 JavaScript 设置 src -->
-    <img id="resultPhoto" src="" alt="上传的照片" width="300">
-    <p>您的肤色和五官特征属于暖色调秋季型，推荐的颜色包括橘棕、橄榄绿、砖红等。</p>
+    <h2>Analysis Result: Warm Autumn</h2>
+    <p>This is the photo you uploaded:</p>
+    <!-- The uploaded photo will have its src set by JavaScript -->
+    <img id="resultPhoto" src="" alt="Uploaded Photo" width="300">
+    <p>Your skin tone and facial features belong to the Warm Autumn type. Recommended colors include orange-brown, olive green, brick red, etc.</p>
     <div class="actions">
-      <button onclick="window.location.href='analysis.html'">重新上传照片</button>
-      <button onclick="window.location.href='consultation.html'">预约专家咨询</button>
-      <button id="shareBtn">分享我的色卡</button>
+      <button onclick="window.location.href='analysis.html'">Upload Another Photo</button>
+      <button onclick="window.location.href='consultation.html'">Book Expert Consultation</button>
+      <button id="shareBtn">Share My Color Palette</button>
     </div>
   </section>
 
-  <!-- 页脚 -->
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Colormatch. All rights reserved.</p>
-    <p>联系我们: support@colormatch.com</p>
+    <p>&copy; 2025 ColorSnap. All rights reserved.</p>
+    <p>Contact: support@ColorSnap.com</p>
   </footer>
 
   <script>
-    // 分享功能：使用 Web Share API 实现分享到 iMessage、Instagram、Facebook 等主流媒体
+    // Share functionality: Use the Web Share API to share to apps like iMessage, Instagram, Facebook, etc.
     document.getElementById('shareBtn').addEventListener('click', async function() {
       if (navigator.share) {
         try {
           await navigator.share({
-            title: '我的色卡结果',
-            text: '这是我的色卡结果，快来看看吧！',
-            url: window.location.href  // 分享当前页面链接
+            title: 'My Color Palette Result',
+            text: 'This is my color palette result, come check it out!',
+            url: window.location.href  // Share current page link
           });
-          console.log('分享成功');
+          console.log('Share successful');
         } catch (error) {
-          console.error('分享失败', error);
+          console.error('Share failed', error);
         }
       } else {
-        // 如果 Web Share API 不支持，则复制链接到剪贴板
+        // If Web Share API is not supported, copy the link to the clipboard
         navigator.clipboard.writeText(window.location.href)
-          .then(() => alert('您的浏览器不支持直接分享，分享链接已复制到剪贴板'))
-          .catch(() => alert('无法复制分享链接，请手动复制'));
+          .then(() => alert('Your browser does not support direct sharing. The share link has been copied to the clipboard.'))
+          .catch(() => alert('Unable to copy share link, please copy manually.'));
       }
     });
   </script>

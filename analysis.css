@@ -32,6 +32,28 @@
     font-weight: 700;
     color: #007BFF;
   }
+  /* nav ul {
+    list-style: none;
+    display: flex;
+  }
+  nav ul li {
+    margin-left: 20px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+  }
+  nav ul li a:hover {
+    color: #007BFF;
+  }
+  nav ul li a.cta {
+    background: #007BFF;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+  } */
   nav ul {
     list-style: none;
     display: flex;
@@ -54,7 +76,6 @@
     padding: 8px 16px;
     border-radius: 20px;
   }
-  
   /* 首屏横幅 */
   .hero {
     background: url('images/hero-bg.jpg') no-repeat center center/cover;

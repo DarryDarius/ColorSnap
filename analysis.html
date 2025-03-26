@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AI Color Analysis - Colormatch</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>AI Color Analysis - ColorSnap</title>
+  <link rel="stylesheet" href="analysis.css">
   <style>
     /* Additional styles for beautifying the Upload Page (similar to index page) */
     .upload-section {
@@ -77,12 +77,16 @@
       font-size: 18px;
       margin-top: 20px;
     }
+    /* 隐藏元素 */
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <div class="logo">Colormatch</div>
+    <div class="logo">ColorSnap</div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -111,8 +115,8 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Colormatch. All rights reserved.</p>
-    <p>Contact: support@colormatch.com</p>
+    <p>&copy; 2025 ColorSnap. All rights reserved.</p>
+    <p>Contact: support@ColorSnap.com</p>
   </footer>
 
   <script>
@@ -135,13 +139,16 @@
     });
 
     analyzeBtn.addEventListener('click', function() {
-      loadingDiv.classList.remove('hidden');
-      // Simulate AI analysis delay of 2 seconds
-      setTimeout(function() {
-        loadingDiv.classList.add('hidden');
-        // After analysis, redirect to result page (data passed via localStorage)
-        window.location.href = 'result.html';
-      }, 2000);
+      // 只有当用户已上传照片时才显示Analyzing消息
+      if (localStorage.getItem('uploadedPhoto')) {
+        loadingDiv.classList.remove('hidden');
+        // Simulate AI analysis delay of 2 seconds
+        setTimeout(function() {
+          loadingDiv.classList.add('hidden');
+          // After analysis, redirect to result page (data passed via localStorage)
+          window.location.href = 'result.html';
+        }, 2000);
+      }
     });
   </script>
 </body>
