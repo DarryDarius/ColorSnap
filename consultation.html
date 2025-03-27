@@ -1,10 +1,120 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Expert Consultation - ColorSnap</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="analysis.css">
+  <style>
+    /* Existing styles for the consultation section */
+    .consultation-section {
+      background: #fff;
+      padding: 60px 20px;
+      margin: 120px auto 60px;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    .consultation-section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+    .consultation-section p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .consultants {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .consultant-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .consultant-card:hover {
+      transform: translateY(-5px);
+    }
+    .consultant-card img {
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .consultant-card h3 {
+      font-size: 24px;
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+    .consultant-card p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    .consultant-card button {
+      padding: 10px 20px;
+      background: #007BFF;
+      border: none;
+      color: #fff;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .consultant-card button:hover {
+      background: #0056b3;
+    }
+    
+    /* New additional block for detailed consultation info */
+    .consultation-details {
+      background: #f4f4f4;
+      padding: 60px 20px;
+      margin: 60px auto;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .consultation-details .details-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .consultation-details .details-text {
+      flex: 1;
+      padding: 20px;
+      min-width: 300px;
+    }
+    .consultation-details .details-text h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+    .consultation-details .details-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .consultation-details .details-image {
+      flex: 1;
+      padding: 20px;
+      min-width: 300px;
+      text-align: center;
+    }
+    .consultation-details .details-image img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -24,15 +134,31 @@
   <!-- Expert Consultation Section -->
   <section class="consultation-section">
     <h2>Expert Consultation</h2>
-    <p>Our professional color consultants will provide one-on-one consultation via video call, offering personalized advice based on your color palette results.</p>
+    <p>Our professional color consultants provide one-on-one consultation via video call, offering personalized advice based on your color palette results.</p>
     <div class="consultants">
       <div class="consultant-card">
         <img src="images/consultant1.jpg" alt="Consultant Photo" width="150">
         <h3>Wang Jing</h3>
         <p>Senior Image Consultant &amp; Personal Color Analyst</p>
-        <button onclick="alert('Booking function not yet implemented')">Book Consultation</button>
+        <button onclick="window.location.href='booking.html'">Book Consultation</button>
+
       </div>
       <!-- More consultant cards can be added -->
+    </div>
+  </section>
+
+  <!-- Additional Detailed Consultation Info Section -->
+  <section class="consultation-details">
+    <div class="details-container">
+      <div class="details-text">
+        <h3>Get In-Depth Color Advice</h3>
+        <p>
+          Looking for more detailed color advice? Our professional color consultants offer one-on-one video consultations that provide personalized guidance beyond what AI can offer. Based on your AI-generated color palette and personal style, our experts will explain the nuances of your color season, tailor recommendations for your wardrobe and makeup, and answer all your questions. Each consultation lasts approximately 30 minutes, ensuring you fully understand your unique color profile.
+        </p>
+      </div>
+      <div class="details-image">
+        <img src="images/consultantpagedecoration.jpg" alt="Consultant and Client Video Call">
+      </div>
     </div>
   </section>
 
@@ -43,4 +169,3 @@
   </footer>
 </body>
 </html>
-```

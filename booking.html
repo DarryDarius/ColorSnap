@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule a Consultation - ColorSnap</title>
+  <link rel="stylesheet" href="analysis.css">
+  <style>
+    /* Booking Section styling to match the consultation page aesthetic */
+    .booking-section {
+      background: #fff;
+      padding: 60px 20px;
+      margin: 120px auto 60px;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .booking-section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #007BFF;
+      text-align: center;
+    }
+    /* New container for side-by-side layout */
+    .booking-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .booking-form-container {
+      flex: 1;
+      padding: 20px;
+      min-width: 300px;
+    }
+    .booking-image-container {
+      flex: 1;
+      padding: 20px;
+      min-width: 300px;
+      text-align: center;
+    }
+    .booking-image-container img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    /* Form styling */
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: left;
+    }
+    .booking-form label {
+      font-weight: 500;
+    }
+    .booking-form input[type="text"],
+    .booking-form input[type="email"],
+    .booking-form input[type="datetime-local"],
+    .booking-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .booking-form textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .booking-form button {
+      padding: 12px;
+      background: #007BFF;
+      border: none;
+      color: #fff;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .booking-form button:hover {
+      background: #0056b3;
+    }
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 20px;
+      color: #28a745;
+      text-align: center;
+    }
+    .success-message i {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">ColorSnap</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analysis.html" class="cta">AI Color Analysis</a></li>
+        <li><a href="consultation.html">Expert Consultation</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Booking Section -->
+  <section class="booking-section">
+    <h2>Schedule a Consultation</h2>
+    <div class="booking-content">
+      <!-- Booking Form Column -->
+      <div class="booking-form-container">
+        <form id="bookingForm" class="booking-form">
+          <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+          </div>
+          <div>
+            <label for="contact">Contact Info (Email):</label>
+            <input type="email" id="contact" name="contact" required placeholder="Enter your email or WeChat ID">
+          </div>
+          <div>
+            <label for="time">Preferred Consultation Time:</label>
+            <!-- Calendar input for selecting a specific date and time -->
+            <input type="datetime-local" id="time" name="time" required>
+          </div>
+          <div>
+            <label for="remarks">Remarks:</label>
+            <textarea id="remarks" name="remarks" placeholder="Any additional information..."></textarea>
+          </div>
+          <button type="submit">Submit Request</button>
+        </form>
+        <div class="success-message" id="successMessage">
+          <i>✅</i> Thank you for your request! Our consultant will contact you soon to confirm the appointment.
+        </div>
+      </div>
+      <!-- Image Column -->
+      <div class="booking-image-container">
+        <img src="images/booking1.jpg" alt="Booking Decoration">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ColorSnap. All rights reserved.</p>
+    <p>Contact: support@ColorSnap.com</p>
+  </footer>
+
+  <script>
+    // Simple form submission simulation with basic validation
+    const bookingForm = document.getElementById('bookingForm');
+    const successMessage = document.getElementById('successMessage');
+
+    bookingForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent actual form submission
+      // Display success message
+      successMessage.style.display = 'block';
+      // Optionally clear the form
+      bookingForm.reset();
+    });
+  </script>
+</body>
+</html>
