@@ -65,8 +65,8 @@
     align-items: center;
     text-align: center;
     color: #fff;
-    padding: 0 20px;
-    margin-top: 80px; /* 补偿固定页眉高度 */
+    padding: 0 30px;
+    margin-top: 70px; /* 补偿固定页眉高度 */
     position: relative;
   }
   .hero::after {
@@ -90,7 +90,7 @@
   }
   .btn {
     padding: 12px 30px;
-    background: #f96ed6;
+    background: linear-gradient(135deg, #f96ed6, #eff66f);
     color: #fff;
     border: none;
     border-radius: 30px;

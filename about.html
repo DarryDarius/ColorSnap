@@ -1,39 +1,170 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>关于我们 - ColorSnap</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>About Us - ColorSnap</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    /* Overall About Us Page Background */
+    body {
+      background-color: #F9F4EF;
+      padding-top: 55px;
+    }
+    /* Our Story Section */
+    .our-story {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #f96ed6, #eff66f);
+    }
+    .our-story h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    .our-story p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      color: #ffffff;
+    }
+    .our-story .story-image {
+      margin-top: 20px;
+    }
+    .our-story .story-image img {
+      max-width: 20%;
+      border-radius: 10px;
+    }
+    /* Our Belief Section */
+    .our-belief {
+      padding: 60px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .our-belief h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #f96ed6;
+    }
+    .belief-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .belief-card {
+      background: #FFEBD4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 250px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .belief-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #f96ed6;
+    }
+    .belief-card p {
+      font-size: 16px;
+      color: #2C2C2C;
+      line-height: 1.5;
+    }
+    /* CTA Section */
+    .cta-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #f96ed6, #eff66f);
+      color: #fff;
+    }
+    .cta-section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .cta-section a.btn {
+      
+      color: #ffffff;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .cta-section a.btn:hover {
+      background: #f4f4f4;
+    }
+  </style>
 </head>
 <body>
-  <!-- 页眉 -->
+  <!-- Header -->
   <header>
     <div class="logo">ColorSnap</div>
     <nav>
       <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="analysis.html" class="cta">AI色彩分析</a></li>
-        <li><a href="consultation.html">专家咨询</a></li>
-        <li><a href="about.html">关于我们</a></li>
-        <li><a href="faq.html">常见问题</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analysis.html" class="cta">AI Color Analysis</a></li>
+        <li><a href="consultation.html">Expert Consultation</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- 关于我们内容 -->
-  <section class="about-section">
-    <h2>关于 ColorSnap</h2>
-    <p>ColorSnap 由一群热爱时尚与科技的人创立，致力于通过 AI 技术为您提供专业的个人色彩分析。我们相信每个人都有属于自己的专属色彩，找到合适的颜色能显著提升气质与自信。</p>
-    <h3>我们的团队</h3>
-    <p>团队成员包括资深色彩顾问、技术专家及设计师。我们共同追求创新与卓越，期待为您带来全新的美学体验。</p>
-    <h3>联系方式</h3>
-    <p>Email: support@ColorSnap.com</p>
+  <!-- Our Story Section -->
+  <section class="our-story">
+    <h2>What is ColorSnap?</h2>
+    <p>
+      ColorSnap is a virtual platform that helps you discover the colors that truly suit you—whether you’re picking out lipstick, choosing a jacket, or just trying to understand your undertone.
+      We combine AI-powered color analysis with optional expert consultations, so anyone, anywhere, can access personalized color insights without needing to travel or guess in front of a mirror.
+      You upload a photo. We analyze your tones. You get a custom palette, styling tips, and even product suggestions that actually match your vibe.
+      Our mission is simple: Make personal color analysis more accessible, more empowering, and more fun.
+    </p>
+    <div class="story-image">
+      <!-- Replace with an illustration or abstract image representing ColorSnap -->
+      <img src="images/consultantpagedecoration.jpg" alt="ColorSnap Illustration">
+    </div>
+    <h2>Meet the Founders</h2>
+    <p>
+      Helen and Tina met over a shared love of skincare, style, and color-coded Pinterest boards.
+      One of them kept buying the wrong lipstick shade. The other once wore a neon green blazer that made her coworkers ask if she was feeling sick.
+      They both agreed: color should be empowering—not confusing.
+      So they teamed up to build something they couldn’t find anywhere else—a platform that feels like a mix of a digital stylist, a best friend who tells the truth, and a shortcut to better shopping decisions.
+      Their goal? To help people feel a little more confident every time they look in the mirror.
+    </p>
   </section>
 
-  <!-- 页脚 -->
+  <!-- Our Belief Section -->
+  <section class="our-belief">
+    <h2>Our Belief</h2>
+    <div class="belief-cards">
+      <div class="belief-card">
+        <h3>🎨 Self-Awareness</h3>
+        <p>Understanding your unique color profile is the first step towards a personalized style.</p>
+      </div>
+      <div class="belief-card">
+        <h3>💬 Empathy</h3>
+        <p>We listen to your needs and tailor our advice to help you feel your best.</p>
+      </div>
+      <div class="belief-card">
+        <h3>🔍 Simplicity</h3>
+        <p>Our goal is to make color analysis accessible and straightforward for everyone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Start your color journey</h2>
+    <a href="analysis.html" class="btn">Get Started</a>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 ColorSnap. All rights reserved.</p>
-    <p>联系我们: support@ColorSnap.com</p>
+    <p>Contact: support@ColorSnap.com</p>
   </footer>
 </body>
 </html>

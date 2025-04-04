@@ -1,43 +1,269 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>常见问题 - ColorSnap</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>FAQ - ColorSnap</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    /* FAQ Page Specific Styles */
+    body {
+      background-color: #FFFDFB;
+      padding-top: 55px;
+    }
+    .faq-section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 120px auto 60px;
+    }
+    .faq-section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #f96ed6;
+      text-align: center;
+    }
+    .faq-item {
+      border-bottom: 1px solid #E6E6E6;
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
+    .faq-question {
+      font-size: 18px;
+      color: #333333;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-question::before {
+      content: "❓";
+      font-size: 18px;
+    }
+    .faq-answer {
+      background-color: #FFF2E2;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      font-size: 16px;
+      color: #555;
+      display: none;
+      line-height: 1.5;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <!-- 页眉 -->
+  <!-- Header -->
   <header>
     <div class="logo">ColorSnap</div>
     <nav>
       <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="analysis.html" class="cta">AI色彩分析</a></li>
-        <li><a href="consultation.html">专家咨询</a></li>
-        <li><a href="about.html">关于我们</a></li>
-        <li><a href="faq.html">常见问题</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analysis.html" class="cta">AI Color Analysis</a></li>
+        <li><a href="consultation.html">Expert Consultation</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- FAQ 内容 -->
+  <!-- FAQ Section -->
   <section class="faq-section">
-    <h2>常见问题</h2>
+    <h2>Frequently Asked Questions</h2>
+    
+    <!-- FAQ Item 1 -->
     <div class="faq-item">
-      <h3>AI 色彩分析准确吗？</h3>
-      <p>我们的 AI 分析结合了大量数据和专业顾问的指导，能为您提供较为准确的色彩建议，但最终效果还需根据个人实际情况调整。</p>
+      <div class="faq-question">1. How does AI color analysis work?</div>
+      <div class="faq-answer">
+        Our AI analyzes your uploaded photo by detecting your undertone, contrast level, and facial features, then matches you to a seasonal color palette (like “Warm Autumn” or “Cool Summer”) based on real color theory.
+      </div>
     </div>
+    
+    <!-- FAQ Item 2 -->
     <div class="faq-item">
-      <h3>上传的照片安全吗？</h3>
-      <p>您的照片仅用于实时分析，分析完成后不会被保存或泄露，确保隐私安全。</p>
+      <div class="faq-question">2. Do I need to wear makeup in my photo?</div>
+      <div class="faq-answer">
+        Actually, no! For best results, we recommend a bare-faced photo in natural lighting, with your hair pulled away from your face.
+      </div>
     </div>
-    <!-- 可继续添加 FAQ -->
+    
+    <!-- FAQ Item 3 -->
+    <div class="faq-item">
+      <div class="faq-question">3. Can I use a photo I already have?</div>
+      <div class="faq-answer">
+        Yes—just make sure it’s clear, taken in soft daylight, and not heavily filtered or edited.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 4 -->
+    <div class="faq-item">
+      <div class="faq-question">4. What happens after I get my result?</div>
+      <div class="faq-answer">
+        You’ll receive your color season, a custom palette, helpful styling tips, and curated product suggestions tailored to your tones.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 5 -->
+    <div class="faq-item">
+      <div class="faq-question">5. How accurate is the AI?</div>
+      <div class="faq-answer">
+        Our AI gives a strong, research-based result, but since color is personal, we also offer expert consultations if you'd like deeper guidance.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 6 -->
+    <div class="faq-item">
+      <div class="faq-question">6. Can I talk to a real color consultant?</div>
+      <div class="faq-answer">
+        Yes! You can book a virtual consultation with a certified expert who can walk you through your result and give personalized advice.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 7 -->
+    <div class="faq-item">
+      <div class="faq-question">7. Will I get makeup and clothing recommendations?</div>
+      <div class="faq-answer">
+        Definitely—we suggest beauty and fashion items that match your palette, and we’re working on partnerships with real brands too.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 8 -->
+    <div class="faq-item">
+      <div class="faq-question">8. Will this tell me what colors to avoid?</div>
+      <div class="faq-answer">
+        Yes, along with your best shades, we’ll highlight tones that might not complement your coloring, so you can shop smarter.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 9 -->
+    <div class="faq-item">
+      <div class="faq-question">9. Is this only for women?</div>
+      <div class="faq-answer">
+        Not at all! Color analysis works for all genders, styles, and anyone curious about looking and feeling better.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 10 -->
+    <div class="faq-item">
+      <div class="faq-question">10. Is my photo safe?</div>
+      <div class="faq-answer">
+        Absolutely. We don’t store or share your image—it's used only once for analysis, then immediately deleted.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 11 -->
+    <div class="faq-item">
+      <div class="faq-question">11. Can I retake the test later?</div>
+      <div class="faq-answer">
+        Of course! You can try again any time—especially if your look changes, like new hair color or a tan.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 12 -->
+    <div class="faq-item">
+      <div class="faq-question">12. What if I don’t like my result?</div>
+      <div class="faq-answer">
+        That’s okay! Think of this as a tool, not a rule—trust your own instincts, and reach out to an expert if you’d like support.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 13 -->
+    <div class="faq-item">
+      <div class="faq-question">13. Can I use this on my phone?</div>
+      <div class="faq-answer">
+        Yes—our platform is mobile-friendly, so you can upload and explore your results on any device.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 14 -->
+    <div class="faq-item">
+      <div class="faq-question">14. Can I share my results on social media?</div>
+      <div class="faq-answer">
+        Absolutely! You’ll have the option to share your palette or product recommendations directly with friends.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 15 -->
+    <div class="faq-item">
+      <div class="faq-question">15. What makes ColorSnap different from quizzes or filters?</div>
+      <div class="faq-answer">
+        We combine real AI tech with certified color consultant insight—not just a trend-based quiz, but something you can actually apply in daily life.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 16 -->
+    <div class="faq-item">
+      <div class="faq-question">16. Do I need to pay to use it?</div>
+      <div class="faq-answer">
+        The basic analysis is free. If you want to go deeper with expert support or premium features, we offer optional upgrades.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 17 -->
+    <div class="faq-item">
+      <div class="faq-question">17. Can my color season change over time?</div>
+      <div class="faq-answer">
+        Yes—factors like aging, tanning, or hair color changes can shift your palette slightly, so it's worth checking in again once in a while.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 18 -->
+    <div class="faq-item">
+      <div class="faq-question">18. Will you offer more features in the future?</div>
+      <div class="faq-answer">
+        Yes! We’re working on smarter shopping tools, more expert content, and language options to serve a global community.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 19 -->
+    <div class="faq-item">
+      <div class="faq-question">19. Do you keep or store my photos?</div>
+      <div class="faq-answer">
+        No, we don’t store any uploaded images. Your photo is used one time for the AI to generate your result and is automatically deleted afterward.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 20 -->
+    <div class="faq-item">
+      <div class="faq-question">20. Will my personal data be shared with anyone?</div>
+      <div class="faq-answer">
+        Never. We don’t sell, share, or give your personal data to third parties. Your privacy matters to us as much as your perfect color palette does.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 21 -->
+    <div class="faq-item">
+      <div class="faq-question">21. Is the platform secure to use?</div>
+      <div class="faq-answer">
+        Yes. All photo uploads and user data are processed through encrypted, secure channels to ensure your information stays private.
+      </div>
+    </div>
+    
+    <!-- FAQ Item 22 -->
+    <div class="faq-item">
+      <div class="faq-question">22. Do I need to make an account to use ColorSnap?</div>
+      <div class="faq-answer">
+        Nope! You can try the basic analysis without signing up. If you choose to save your results or book a consultation, we may ask for minimal info to make the experience smoother—but never more than necessary.
+      </div>
+    </div>
   </section>
 
-  <!-- 页脚 -->
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 ColorSnap. All rights reserved.</p>
-    <p>联系我们: support@ColorSnap.com</p>
+    <p>Contact: support@ColorSnap.com</p>
   </footer>
+
+  <script>
+    // Simple accordion functionality for FAQ
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
