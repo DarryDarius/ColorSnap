@@ -5,52 +5,55 @@
   <title>Schedule a Consultation - ColorSnap</title>
   <link rel="stylesheet" href="analysis.css">
   <style>
-    /* Booking Section styling to match the consultation page aesthetic */
-    .booking-section {
-      background: #fff;
-      padding: 60px 20px;
-      margin: 120px auto 60px;
-      max-width: 900px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* 
+      Main container with a large colored background, 
+      inspired by the reference image
+    */
+    body {
+      padding-top:60px ;
     }
-    .booking-section h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: #007BFF;
-      text-align: center;
-    }
-    /* New container for side-by-side layout */
-    .booking-content {
+    .booking-hero {
+      /* Soft aqua/turquoise background */
+      background: linear-gradient(135deg, #f96ed6, #eff66f);
+      min-height: 80vh;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
     }
-    .booking-form-container {
+    .hero-content {
       flex: 1;
-      padding: 20px;
-      min-width: 300px;
+      max-width: 600px;
+      margin-right: 20px;
     }
-    .booking-image-container {
-      flex: 1;
-      padding: 20px;
-      min-width: 300px;
-      text-align: center;
+    .hero-content h2 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
     }
-    .booking-image-container img {
-      max-width: 100%;
+    .hero-content p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    /* The form card area */
+    .booking-form-card {
+      background: #fff;
       border-radius: 10px;
+      padding: 20px 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
     }
-    /* Form styling */
     .booking-form {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      text-align: left;
+      gap: 15px;
     }
     .booking-form label {
       font-weight: 500;
+      margin-bottom: 5px;
     }
     .booking-form input[type="text"],
     .booking-form input[type="email"],
@@ -63,30 +66,109 @@
     }
     .booking-form textarea {
       resize: vertical;
-      min-height: 80px;
+      min-height: 60px;
     }
     .booking-form button {
       padding: 12px;
-      background: #007BFF;
+      background: #f96ed6;
       border: none;
       color: #fff;
-      border-radius: 30px;
+      border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
       transition: background 0.3s;
     }
     .booking-form button:hover {
-      background: #0056b3;
+      background: #0095A4;
     }
+
     .success-message {
       display: none;
-      margin-top: 20px;
-      font-size: 20px;
+      margin-top: 15px;
+      font-size: 18px;
       color: #28a745;
-      text-align: center;
     }
     .success-message i {
       margin-right: 10px;
+    }
+
+    /* Right-side image */
+    .hero-image {
+      flex: 1;
+      text-align: right;
+      max-width: 500px;
+    }
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    /* Fixed header styling override */
+    header {
+      background: rgba(255,255,255,0.95);
+      padding: 20px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #f96ed6;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #333;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #f96ed6;
+    }
+    nav ul li a.cta {
+      background: #f96ed6;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .booking-hero {
+        flex-direction: column;
+        min-height: auto;
+        padding: 20px;
+      }
+      .hero-content {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      .hero-image {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -105,12 +187,16 @@
     </nav>
   </header>
 
-  <!-- Booking Section -->
-  <section class="booking-section">
-    <h2>Schedule a Consultation</h2>
-    <div class="booking-content">
-      <!-- Booking Form Column -->
-      <div class="booking-form-container">
+  <!-- Main Booking Section with Large Background -->
+  <section class="booking-hero">
+    <div class="hero-content">
+      <h2>Schedule a Consultation</h2>
+      <p>
+        Personalized advice based on your color palette results!
+      </p>
+
+      <!-- Form card area -->
+      <div class="booking-form-card">
         <form id="bookingForm" class="booking-form">
           <div>
             <label for="name">Name:</label>
@@ -122,7 +208,6 @@
           </div>
           <div>
             <label for="time">Preferred Consultation Time:</label>
-            <!-- Calendar input for selecting a specific date and time -->
             <input type="datetime-local" id="time" name="time" required>
           </div>
           <div>
@@ -135,10 +220,11 @@
           <i>✅</i> Thank you for your request! Our consultant will contact you soon to confirm the appointment.
         </div>
       </div>
-      <!-- Image Column -->
-      <div class="booking-image-container">
-        <img src="images/booking1.jpg" alt="Booking Decoration">
-      </div>
+    </div>
+
+    <!-- Image on the right -->
+    <div class="hero-image">
+      <img id="bookingImage" src="images/booking1.jpg" alt="Booking Decoration">
     </div>
   </section>
 
@@ -149,6 +235,19 @@
   </footer>
 
   <script>
+    // Parse URL parameters
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Update booking image based on 'expert' query parameter
+    const expertParam = getQueryParam('expert');
+    const bookingImage = document.getElementById('bookingImage');
+    if (expertParam) {
+      bookingImage.src = 'images/' + expertParam + '.jpg';
+    }
+
     // Simple form submission simulation with basic validation
     const bookingForm = document.getElementById('bookingForm');
     const successMessage = document.getElementById('successMessage');

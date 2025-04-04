@@ -5,14 +5,16 @@
   <title>Expert Consultation - ColorSnap</title>
   <link rel="stylesheet" href="analysis.css">
   <style>
-    /* Existing styles for the consultation section */
+    /* Consultation Section */
+        
+
     .consultation-section {
       background: #fff;
       padding: 60px 20px;
       margin: 120px auto 60px;
-      max-width: 900px;
+      max-width: 1200px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       text-align: center;
     }
     .consultation-section h2 {
@@ -24,43 +26,60 @@
       font-size: 18px;
       margin-bottom: 40px;
       max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto 40px;
       line-height: 1.6;
     }
-    .consultants {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* Expert Cards Grid */
+    .experts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
+      justify-items: center;
     }
-    .consultant-card {
-      background: #f9f9f9;
+    .expert-card {
+      background: #FFF7F2;
+      border: 1px solid #FFE0C6;
       border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      width: 250px;
-      text-align: center;
+      width: 100%;
+      max-width: 300px;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       transition: transform 0.3s;
     }
-    .consultant-card:hover {
+    .expert-card:hover {
       transform: translateY(-5px);
     }
-    .consultant-card img {
-      border-radius: 50%;
+    .expert-card .photo {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
       margin-bottom: 15px;
     }
-    .consultant-card h3 {
+    .expert-card h3 {
       font-size: 24px;
       color: #f96ed6;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .expert-card h3 .icon {
+      font-size: 24px;
+    }
+    .expert-card h4 {
+      font-size: 16px;
+      color: #8A6D5C;
       margin-bottom: 10px;
     }
-    .consultant-card p {
-      font-size: 16px;
-      margin-bottom: 20px;
+    .expert-card p {
+      font-size: 14px;
       color: #555;
+      margin-bottom: 15px;
+      line-height: 1.4;
     }
-    .consultant-card button {
+    .expert-card button {
       padding: 10px 20px;
       background: #f96ed6;
       border: none;
@@ -70,49 +89,8 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-    .consultant-card button:hover {
-      background: #f96ed6;
-    }
-    
-    /* New additional block for detailed consultation info */
-    .consultation-details {
-      background: #f4f4f4;
-      padding: 60px 20px;
-      margin: 60px auto;
-      max-width: 900px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    .consultation-details .details-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-    }
-    .consultation-details .details-text {
-      flex: 1;
-      padding: 20px;
-      min-width: 300px;
-    }
-    .consultation-details .details-text h3 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #f96ed6;
-    }
-    .consultation-details .details-text p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #333;
-    }
-    .consultation-details .details-image {
-      flex: 1;
-      padding: 20px;
-      min-width: 300px;
-      text-align: center;
-    }
-    .consultation-details .details-image img {
-      max-width: 100%;
-      border-radius: 10px;
+    .expert-card button:hover {
+      background: #D9793F;
     }
   </style>
 </head>
@@ -134,30 +112,107 @@
   <!-- Expert Consultation Section -->
   <section class="consultation-section">
     <h2>Expert Consultation</h2>
-    <p>Our professional color consultants provide one-on-one consultation via video call, offering personalized advice based on your color palette results.</p>
-    <div class="consultants">
-      <div class="consultant-card">
-        <img src="images/consultant1.jpg" alt="Consultant Photo" width="150">
-        <h3>Wang Jing</h3>
-        <p>Senior Image Consultant &amp; Personal Color Analyst</p>
-        <button onclick="window.location.href='booking.html'">Book Consultation</button>
+    <p>Our professional color consultants provide one-on-one consultation via video call, offering personalized advice based on your color palette results. Choose an expert below to learn more about their approach and schedule your consultation.</p>
+    
+    <div class="experts-grid">
+      <!-- Expert 1: Yuna Lee -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex1.jpg" alt="Yuna Lee">
+        <h3><span class="icon">🌿</span> Yuna Lee</h3>
+        <h4>Personal Color Consultant – Busan, South Korea</h4>
+        <p>With 5 years of experience in personal color analysis, Yuna has helped over 200 clients discover their best tones. She specializes in soft summer and light spring palettes and is known for her calm, intuitive approach to everyday styling.</p>
+        <button onclick="window.location.href='booking.html?expert=ex1'">Book Consultation</button>
 
       </div>
-      <!-- More consultant cards can be added -->
-    </div>
-  </section>
+      <!-- Expert 2: Jisoo Park -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex2.jpg" alt="Jisoo Park">
+        <h3><span class="icon">💼</span> Jisoo Park</h3>
+        <h4>Senior Color Consultant – Seoul, South Korea</h4>
+        <p>Jisoo has worked with ColorSnap for over 6 years, specializing in deep winter and cool summer tones. Her clients appreciate her structured yet friendly approach, helping them translate analysis into confident everyday outfits.</p>
+        <button onclick="window.location.href='booking.html?expert=ex2'">Book Consultation</button>
 
-  <!-- Additional Detailed Consultation Info Section -->
-  <section class="consultation-details">
-    <div class="details-container">
-      <div class="details-text">
-        <h3>Get In-Depth Color Advice</h3>
-        <p>
-          Looking for more detailed color advice? Our professional color consultants offer one-on-one video consultations that provide personalized guidance beyond what AI can offer. Based on your AI-generated color palette and personal style, our experts will explain the nuances of your color season, tailor recommendations for your wardrobe and makeup, and answer all your questions. Each consultation lasts approximately 30 minutes, ensuring you fully understand your unique color profile.
-        </p>
       </div>
-      <div class="details-image">
-        <img src="images/consultantpagedecoration.jpg" alt="Consultant and Client Video Call">
+      <!-- Expert 3: Soojin Kwon -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex3.jpg" alt="Soojin Kwon">
+        <h3><span class="icon">🌸</span> Soojin Kwon</h3>
+        <h4>Color & Style Coach – Incheon, South Korea</h4>
+        <p>Soojin has been part of the ColorSnap team for 4 years, blending personal color theory with real-life styling. She is especially skilled in light summer and soft autumn tones, making color feel both calming and empowering.</p>
+        <button onclick="window.location.href='booking.html?expert=ex3'">Book Consultation</button>
+
+      </div>
+      <!-- Expert 4: Ha-eun Lim -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex4.jpg" alt="Ha-eun Lim">
+        <h3><span class="icon">🌷</span> Ha-eun Lim</h3>
+        <h4>Junior Color Consultant – Daejeon, South Korea</h4>
+        <p>Ha-eun joined ColorSnap after studying fashion color psychology and focuses on fresh, youthful palettes like light spring and clear winter. Her bright energy and easy-to-follow tips delight her clients.</p>
+        <button onclick="window.location.href='booking.html?expert=ex4'">Book Consultation</button>
+
+      </div>
+      <!-- Expert 5: Nia Brooks -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex5.jpg" alt="Nia Brooks">
+        <h3><span class="icon">☀️</span> Nia Brooks</h3>
+        <h4>Color Coach – Seoul, South Korea</h4>
+        <p>Nia brings a global perspective with her background in beauty marketing and skin tone inclusivity. She specializes in deep autumn and true winter palettes, celebrating bold, rich color stories.</p>
+        <button onclick="window.location.href='booking.html?expert=ex5'">Book Consultation</button>
+
+      </div>
+      <!-- Expert 6: Elizabeth Lee -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex6.jpg" alt="Elizabeth Lee">
+        <h3><span class="icon">💎</span> Elizabeth Lee</h3>
+        <h4>Certified Color Analyst – Seoul, South Korea</h4>
+        <p>With 7 years of experience, Elizabeth works with neutral and cool undertones. Clients trust her for timeless advice and thoughtful guidance on balancing personality with palette.</p>
+        <button onclick="window.location.href='booking.html?expert=ex6'">Book Consultation</button>
+
+      </div>
+      <!-- Expert 7: Eunji Han -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex7.jpg" alt="Eunji Han">
+        <h3><span class="icon">🌸</span> Eunji Han</h3>
+        <h4>Lead Color Consultant – Seoul, South Korea</h4>
+        <p>Eunji has over 6 years at ColorSnap and is renowned for her precise cool/warm contrast assessments. Her sessions are both insightful and uplifting.</p>
+        <button onclick="window.location.href='booking.html?expert=ex7'">Book Consultation</button>
+
+      </div>
+      <!-- Expert 8: Ara Jeong -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex8.jpg" alt="Ara Jeong">
+        <h3><span class="icon">🍃</span> Ara Jeong</h3>
+        <h4>Color Specialist – Gwangju, South Korea</h4>
+        <p>With a background in fashion retail and color consulting, Ara has spent 5 years simplifying wardrobes using muted seasonal palettes and tone-on-tone styling.</p>
+        <button onclick="window.location.href='booking.html?expert=ex8'">Book Consultation</button>
+
+      </div>
+      <!-- Expert 9: Audrey Chen -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex9.jpg" alt="Audrey Chen">
+        <h3><span class="icon">🎀</span> Audrey Chen</h3>
+        <h4>Color Consultant – Shenzhen, China</h4>
+        <p>Audrey is known for her energetic, modern take on clear spring and bright summer palettes. She helps young professionals build fresh, color-smart wardrobes.</p>
+        <button onclick="window.location.href='booking.html?expert=ex9'">Book Consultation</button>
+
+      </div>
+      <!-- Expert 10: Talia Kim -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex10.jpg" alt="Talia Kim">
+        <h3><span class="icon">🌟</span> Talia Kim</h3>
+        <h4>Color Strategy Consultant – Seoul, South Korea</h4>
+        <p>Talia combines consulting experience with digital media expertise to help clients understand color’s role in style, branding, and identity. She specializes in bright spring and clear winter palettes.</p>
+        <button onclick="window.location.href='booking.html?expert=ex10'">Book Consultation</button>
+
+      </div>
+      <!-- Expert 11: Olivia Bennett -->
+      <div class="expert-card">
+        <img class="photo" src="images/ex11.jpg" alt="Olivia Bennett">
+        <h3><span class="icon">🌼</span> Olivia Bennett</h3>
+        <h4>Color Consultant – San Francisco, USA</h4>
+        <p>Olivia focuses on soft summer and cool neutral palettes with 4 years of experience. With expertise in wardrobe styling and personal branding, she creates looks that are fresh and polished.</p>
+        <button onclick="window.location.href='booking.html?expert=ex11'">Book Consultation</button>
+
       </div>
     </div>
   </section>
