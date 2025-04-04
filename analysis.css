@@ -30,7 +30,7 @@
   .logo {
     font-size: 28px;
     font-weight: 700;
-    color: #007BFF;
+    color: #f96ed6;
   }
   /* nav ul {
     list-style: none;
@@ -46,10 +46,10 @@
     transition: color 0.3s;
   }
   nav ul li a:hover {
-    color: #007BFF;
+    color: #f96ed6;
   }
   nav ul li a.cta {
-    background: #007BFF;
+    background: #f96ed6;
     color: #fff;
     padding: 8px 16px;
     border-radius: 20px;
@@ -68,10 +68,10 @@
     transition: color 0.3s;
   }
   nav ul li a:hover {
-    color: #007BFF;
+    color: #f96ed6;
   }
   nav ul li a.cta {
-    background: #007BFF;
+    background: #f96ed6;
     color: #fff;
     padding: 8px 16px;
     border-radius: 20px;
@@ -111,7 +111,7 @@
   }
   .btn {
     padding: 12px 30px;
-    background: #007BFF;
+    background: #f96ed6;
     color: #fff;
     border: none;
     border-radius: 30px;
@@ -120,7 +120,7 @@
     transition: background 0.3s;
   }
   .btn:hover {
-    background: #0056b3;
+    background: #f96ed6;
   }
   
   /* 平台简介 */
@@ -132,7 +132,7 @@
   .introduction h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #007BFF;
+    color: #f96ed6;
   }
   .introduction p {
     font-size: 18px;
@@ -145,13 +145,13 @@
     display: inline-block;
     margin-top: 10px;
     font-size: 16px;
-    color: #007BFF;
+    color: #f96ed6;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-bottom 0.3s;
   }
   .introduction a:hover {
-    border-bottom: 1px solid #007BFF;
+    border-bottom: 1px solid #f96ed6;
   }
   
   /* 服务特色 */
@@ -173,7 +173,7 @@
   .features .feature h3 {
     font-size: 24px;
     margin-bottom: 15px;
-    color: #007BFF;
+    color: #f96ed6;
   }
   .features .feature p {
     font-size: 16px;
@@ -182,7 +182,7 @@
   
   /* CTA 区域 */
   .cta-area {
-    background: linear-gradient(135deg, #007BFF, #00C6FF);
+    background: linear-gradient(135deg, #f96ed6, #00C6FF);
     color: #fff;
     padding: 60px 20px;
     text-align: center;
@@ -193,7 +193,7 @@
   }
   .cta-area a.btn {
     background: #fff;
-    color: #007BFF;
+    color: #f96ed6;
   }
   .cta-area a.btn:hover {
     background: #f4f4f4;
