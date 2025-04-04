@@ -33,13 +33,13 @@ body {
   }
   nav a.cta {
     color: #fff;
-    background: #007BFF;
+    background: #fa6de5;
     padding: 5px 10px;
     border-radius: 3px;
   }
   .hero {
     background: url('images/hero-bg.jpg') no-repeat center/cover;
-    color: #21a7c2;
+    color: #f460cf;
     text-align: center;
     padding: 80px 20px;
   }

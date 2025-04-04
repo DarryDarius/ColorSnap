@@ -1,0 +1,577 @@
+/* latest.css */
+
+/* Global CSS Variables */
+:root {
+    --main-bg: #FBFAF7;              /* Cream white background */
+    --main-text: #2C2C2C;            /* Dark gray text */
+    --secondary-text: #707070;       /* Secondary text */
+    --btn-main: #F4A261;             /* Main button (soft orange) */
+    --btn-hover: #E28A50;            /* Button hover */
+    --accent1: #D18F88;              /* Decorative accent color */
+    --accent2: #FFEBD4;              /* Card/FAQ background accent */
+    --success: #98C9A3;              /* Success/confirmation color */
+    --warning: #E2E2E2;              /* Warning/light border */
+  
+    /* Page-Specific Variables */
+    /* AI Color Analysis Page */
+    --ai-bg: #FDF8F4;               /* Light tea white */
+    --upload-bg: #FFF2E5;           /* Upload area background */
+    --analysis-result-gradient-start: #F4A261;
+    --analysis-result-gradient-end: #EED2B1;
+  
+    /* Expert Consultation Page */
+    --consultant-card-bg: #FFF7F2;
+    --consultant-card-border: #FFE0C6;
+    --booking-btn: #F4A261;
+    --booking-btn-hover: #D9793F;
+    --text-accent: #8A6D5C;
+  
+    /* About Us Page */
+    --about-bg: #F9F4EF;
+    --belief-gradient-start: #FFE8D6;
+    --belief-gradient-end: #FFFFFF;
+    --cta-bg: #F4A261;
+  
+    /* FAQ Page */
+    --faq-bg: #FFFDFB;
+    --faq-question-color: #333333;
+    --faq-answer-bg: #FFF2E2;
+    --faq-divider: #E6E6E6;
+  }
+  
+  /* Global Styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--main-bg);
+    color: var(--main-text);
+    padding: 0 40px;
+  }
+  
+  /* Header */
+  header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header .logo {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--btn-main);
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--main-text);
+    transition: color 0.3s;
+    padding: 8px 16px;
+  }
+  
+  nav ul li a:hover {
+    color: var(--btn-main);
+  }
+  
+  nav ul li a.cta {
+    background: var(--btn-main);
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Hero Section with Blurred Background */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-height: 70vh;
+    margin-top: 80px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/index1.jpg') no-repeat center center/cover;
+    filter: blur(1px);
+    z-index: -1;
+  }
+  
+  .hero h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  
+  /* Unified Button Style */
+  button, .btn {
+    border: none;
+    border-radius: 8px;
+    background: var(--btn-main);
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  button:hover, .btn:hover {
+    background: var(--btn-hover);
+    transform: scale(1.02);
+  }
+  
+  /* Introduction Section */
+  .introduction {
+    padding: 60px 20px;
+    text-align: center;
+    background: #fff;
+  }
+  
+  .introduction h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--btn-main);
+  }
+  
+  .introduction p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .introduction a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--btn-main);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+  }
+  
+  .introduction a:hover {
+    border-bottom: 1px solid var(--btn-main);
+  }
+  
+  .introduction .intro-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .introduction .intro-text {
+    flex: 1 1 300px;
+    padding: 20px;
+  }
+  
+  .introduction .intro-image {
+    flex: 1 1 300px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .introduction .intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* Features Section */
+  .features {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .features .feature {
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    vertical-align: top;
+    transition: transform 0.3s;
+  }
+  
+  .features .feature:hover {
+    transform: scale(1.05);
+  }
+  
+  .features .feature h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--btn-main);
+  }
+  
+  .features .feature p {
+    font-size: 16px;
+    color: var(--secondary-text);
+  }
+  
+  /* CTA Area */
+  .cta-area {
+    background: linear-gradient(135deg, #007BFF, #00C6FF);
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .cta-area h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .cta-area a.btn {
+    background: #fff;
+    color: var(--btn-main);
+  }
+  
+  .cta-area a.btn:hover {
+    background: #f4f4f4;
+  }
+  
+  /* Footer */
+  footer {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 5px 0;
+  }
+  
+  /* Page 1: AI Color Analysis */
+  /* Background for the AI Color Analysis page */
+  .ai-page {
+    background: var(--ai-bg);
+  }
+  
+  /* Upload Area (for AI Color Analysis) */
+  .upload-area {
+    background: var(--upload-bg);
+    padding: 20px;
+    border: 2px dashed var(--secondary-text);
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .upload-area::after {
+    content: "📸";
+    font-size: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--secondary-text);
+  }
+  
+  /* Analysis Result Background (Example for Warm Autumn) */
+  .analysis-result {
+    background: linear-gradient(135deg, var(--analysis-result-gradient-start), var(--analysis-result-gradient-end));
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  /* Color Block for Result Display */
+  .color-block {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .color-block:hover {
+    transform: scale(1.05);
+  }
+  
+  .color-label {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Page 2: Expert Consultation */
+  .consultation-section {
+    background: #fff;
+    padding: 60px 20px;
+    margin: 120px auto 60px;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  
+  .consultants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .consultant-card {
+    background: var(--consultant-card-bg);
+    border: 1px solid var(--consultant-card-border);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .consultant-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .consultant-card img {
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .consultant-card h3 {
+    font-size: 24px;
+    color: var(--btn-main);
+    margin-bottom: 10px;
+  }
+  
+  .consultant-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: var(--text-accent);
+  }
+  
+  .consultant-card button {
+    background: var(--booking-btn);
+    transition: background 0.3s;
+  }
+  
+  .consultant-card button:hover {
+    background: var(--booking-btn-hover);
+  }
+  
+  /* Page 3: About Us */
+  .about-section {
+    background: var(--about-bg);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .about-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--btn-main);
+  }
+  
+  .about-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Page 4: FAQ */
+  .faq-section {
+    background: var(--faq-bg);
+    padding: 60px 20px;
+  }
+  
+  .faq-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--btn-main);
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+  }
+  
+  .faq-item h3 {
+    font-size: 18px;
+    color: var(--faq-question-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .faq-item h3 span {
+    margin-right: 10px;
+  }
+  
+  .faq-item .answer {
+    background: var(--faq-answer-bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--faq-divider);
+  }
+  
+  /* Booking Section (Page 2: Booking) */
+  .booking-section {
+    background: #fff;
+    padding: 60px 20px;
+    margin: 120px auto 60px;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .booking-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--btn-main);
+    text-align: center;
+  }
+  
+  .booking-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .booking-form-container {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+  }
+  
+  .booking-image-container {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+    text-align: center;
+  }
+  
+  .booking-image-container img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .booking-form label {
+    font-weight: 500;
+  }
+  
+  .booking-form input[type="text"],
+  .booking-form input[type="email"],
+  .booking-form input[type="datetime-local"],
+  .booking-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .booking-form textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .booking-form button {
+    padding: 12px;
+    background: var(--btn-main);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .booking-form button:hover {
+    background: var(--btn-hover);
+  }
+  
+  .success-message {
+    display: none;
+    margin-top: 20px;
+    font-size: 20px;
+    color: var(--success);
+    text-align: center;
+  }
+  
+  .success-message i {
+    margin-right: 10px;
+  }
+  
+  /* Unified Components */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .features .feature {
+      width: 80%;
+      display: block;
+      margin: 20px auto;
+    }
+    .consultation-section, .consultation-details, .booking-section {
+      margin: 80px auto 40px;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
