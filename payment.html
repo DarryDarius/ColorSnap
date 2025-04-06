@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment - ColorSnap</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    
+    /* 全局样式 */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f96ed6;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #f96ed6;
+    }
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #f96ed6;
+      margin-bottom: 40px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group {
+      margin-bottom: 25px;
+    }
+    label {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #333;
+      display: block;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="month"] {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    .form-row .form-group {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    button {
+      padding: 15px;
+      background: linear-gradient(135deg, #f96ed6, #eff66f);
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #d9793f;
+    }
+    footer {
+      background: #000000;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    }
+    footer p {
+      margin: 5px 0;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <!-- 头部导航 -->
+  <header>
+    <div class="logo">ColorSnap</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analysis.html" class="cta">AI Color Analysis</a></li>
+        <li><a href="consultation.html">Expert Consultation</a></li>
+        <li><a href="shoppingcart.html">Shopping Cart</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 支付表单区域 -->
+  <div class="container">
+    <h1>Payment Information</h1>
+    <form id="paymentForm">
+      <div class="form-group">
+        <label for="cardName">Cardholder Name</label>
+        <input type="text" id="cardName" name="cardName" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="cardNumber">Credit Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="expiry">Expiration Date</label>
+          <input type="month" id="expiry" name="expiry" required>
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV</label>
+          <input type="number" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
+        </div>
+      </div>
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>&copy; 2025 ColorSnap. All rights reserved.</p>
+    <p>Contact: support@ColorSnap.com</p>
+  </footer>
+
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // 这里可以添加支付处理逻辑
+      alert('Payment processing...');
+    });
+  </script>
+</body>
+</html>
