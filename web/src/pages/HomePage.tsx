@@ -3,15 +3,66 @@ import { Link } from "react-router-dom";
 export function HomePage() {
   return (
     <>
-      <section className="hero">
-        <h1>Discover Your Signature Colors, Illuminate Your Style</h1>
-        <p>
-          Personal color analysis powered by AI and expert advice to boost your
-          confidence.
-        </p>
-        <Link to="/analysis" className="btn">
-          Start Analysis →
-        </Link>
+      <section className="hero hero--split">
+        <div className="hero__inner site-container">
+          <div className="hero__copy">
+            <h1>Discover Your Signature Colors, Illuminate Your Style</h1>
+            <p>
+              Personal color analysis powered by AI and expert advice to help
+              you shop makeup & outfits with confidence.
+            </p>
+
+            <div className="hero__actions">
+              <Link to="/analysis" className="btn btn--primary">
+                Start Analysis →
+              </Link>
+              <Link to="/result" className="btn btn--secondary">
+                See an Example
+              </Link>
+            </div>
+
+            <div className="badges hero__badges" aria-label="Trust highlights">
+              <span className="badge">🔒 Privacy-first</span>
+              <span className="badge">⚡ Fast results</span>
+              <span className="badge">💬 Expert option</span>
+            </div>
+          </div>
+
+          <div className="hero__preview" aria-hidden="true">
+            <div className="gradient-shell">
+              <div className="gradient-shell__inner hero-card">
+                <div className="hero-card__top">
+                  <img
+                    className="hero-card__photo"
+                    src="input/image1.webp"
+                    alt=""
+                  />
+                  <div>
+                    <div className="hero-card__title">Warm Autumn</div>
+                    <div className="hero-card__subtitle">
+                      Warm · Rich · Earthy
+                    </div>
+                  </div>
+                </div>
+
+                <div className="palette-mini" aria-hidden="true">
+                  <span style={{ background: "#B4532A" }} />
+                  <span style={{ background: "#D97706" }} />
+                  <span style={{ background: "#C2410C" }} />
+                  <span style={{ background: "#A16207" }} />
+                  <span style={{ background: "#7C2D12" }} />
+                  <span style={{ background: "#4D7C0F" }} />
+                  <span style={{ background: "#B91C1C" }} />
+                  <span style={{ background: "#F59E0B" }} />
+                </div>
+
+                <div className="hero-card__hint">
+                  Upload a selfie → Get a palette → Shop smarter
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="introduction">

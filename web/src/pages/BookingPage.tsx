@@ -1,6 +1,7 @@
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useToast } from "../components/ToastProvider";
 
 function getQueryParam(search: string, param: string): string | null {
   const urlParams = new URLSearchParams(search);
@@ -9,11 +10,34 @@ function getQueryParam(search: string, param: string): string | null {
 
 export function BookingPage() {
   const location = useLocation();
+  const { pushToast } = useToast();
 
   const expertParam = useMemo(
     () => getQueryParam(location.search, "expert"),
     [location.search],
   );
+
+  const experts = useMemo(
+    () => [
+      { id: "ex1", name: "Yuna Lee", title: "Busan, South Korea" },
+      { id: "ex2", name: "Jisoo Park", title: "Seoul, South Korea" },
+      { id: "ex3", name: "Soojin Kwon", title: "Incheon, South Korea" },
+      { id: "ex4", name: "Ha-eun Lim", title: "Daejeon, South Korea" },
+      { id: "ex5", name: "Nia Brooks", title: "Seoul, South Korea" },
+      { id: "ex6", name: "Elizabeth Lee", title: "Seoul, South Korea" },
+      { id: "ex7", name: "Eunji Han", title: "Seoul, South Korea" },
+      { id: "ex8", name: "Ara Jeong", title: "Gwangju, South Korea" },
+      { id: "ex9", name: "Audrey Chen", title: "Shenzhen, China" },
+      { id: "ex10", name: "Talia Kim", title: "Seoul, South Korea" },
+      { id: "ex11", name: "Olivia Bennett", title: "San Francisco, USA" },
+    ],
+    [],
+  );
+
+  const selectedExpert = useMemo(() => {
+    if (!expertParam) return null;
+    return experts.find((e) => e.id === expertParam) ?? null;
+  }, [expertParam, experts]);
 
   const bookingImage = expertParam
     ? `images/${expertParam}.jpg`
@@ -28,6 +52,11 @@ export function BookingPage() {
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     setSubmitted(true);
+    pushToast({
+      title: "Request submitted",
+      message: "We’ll contact you soon to confirm the appointment.",
+      variant: "success",
+    });
     setName("");
     setContact("");
     setTime("");
@@ -38,7 +67,21 @@ export function BookingPage() {
     <section className="booking-hero">
       <div className="hero-content">
         <h2>Schedule a Consultation</h2>
-        <p>Personalized advice based on your color palette results!</p>
+        <p>Personalized advice based on your color palette results.</p>
+
+        {selectedExpert ? (
+          <div className="booking-expert card card--solid">
+            <img
+              className="booking-expert__photo"
+              src={`images/${selectedExpert.id}.jpg`}
+              alt={selectedExpert.name}
+            />
+            <div>
+              <div className="booking-expert__name">{selectedExpert.name}</div>
+              <div className="booking-expert__meta">{selectedExpert.title}</div>
+            </div>
+          </div>
+        ) : null}
 
         <div className="booking-form-card">
           <form className="booking-form" onSubmit={onSubmit}>
@@ -87,7 +130,9 @@ export function BookingPage() {
                 onChange={(e) => setRemarks(e.target.value)}
               />
             </div>
-            <button type="submit">Submit Request</button>
+            <button type="submit" className="btn btn--primary">
+              Submit Request
+            </button>
           </form>
           <div
             className="success-message"

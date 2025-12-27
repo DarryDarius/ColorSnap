@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 type Expert = {
@@ -11,6 +11,8 @@ type Expert = {
 
 export function ConsultationPage() {
   const navigate = useNavigate();
+
+  const [query, setQuery] = useState("");
 
   const experts = useMemo<Expert[]>(
     () => [
@@ -95,6 +97,18 @@ export function ConsultationPage() {
     [],
   );
 
+  const filteredExperts = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return experts;
+    return experts.filter((e) => {
+      return (
+        e.name.toLowerCase().includes(q) ||
+        e.title.toLowerCase().includes(q) ||
+        e.bio.toLowerCase().includes(q)
+      );
+    });
+  }, [experts, query]);
+
   return (
     <section className="consultation-section">
       <h2>Expert Consultation</h2>
@@ -105,8 +119,18 @@ export function ConsultationPage() {
         schedule your consultation.
       </p>
 
+      <div style={{ maxWidth: 520, margin: "0 auto 18px" }}>
+        <input
+          className="faq-search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search experts… (name, city, specialty)"
+          aria-label="Search experts"
+        />
+      </div>
+
       <div className="experts-grid">
-        {experts.map((expert) => (
+        {filteredExperts.map((expert) => (
           <div key={expert.id} className="expert-card">
             <img
               className="photo"
@@ -120,6 +144,7 @@ export function ConsultationPage() {
             <p>{expert.bio}</p>
             <button
               type="button"
+              className="btn btn--primary btn--small"
               onClick={() => navigate(`/booking?expert=${expert.id}`)}
             >
               Book Consultation
