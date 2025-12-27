@@ -48,19 +48,59 @@ export function BookingPage() {
   const [time, setTime] = useState("");
   const [remarks, setRemarks] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
-    pushToast({
-      title: "Request submitted",
-      message: "We’ll contact you soon to confirm the appointment.",
-      variant: "success",
-    });
-    setName("");
-    setContact("");
-    setTime("");
-    setRemarks("");
+    if (submitting) return;
+
+    setSubmitting(true);
+    try {
+      // Dynamic deployment: submit to backend API
+      // NOTE: In local dev, Vite proxies /api to http://localhost:3000 (see `web/vite.config.ts`).
+      const res = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name,
+          contact,
+          time,
+          remarks,
+          expertId: expertParam ?? undefined,
+        }),
+      });
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => "");
+        throw new Error(text || `Request failed (${res.status})`);
+      }
+
+      setSubmitted(true);
+      pushToast({
+        title: "Request submitted",
+        message: "We’ll contact you soon to confirm the appointment.",
+        variant: "success",
+      });
+
+      setName("");
+      setContact("");
+      setTime("");
+      setRemarks("");
+    } catch (err) {
+      // TODO(you): Once you add a real DB (RDS Postgres) and email notifications,
+      // return structured errors from the backend and surface them here.
+      pushToast({
+        title: "Couldn’t submit",
+        message:
+          err instanceof Error
+            ? err.message
+            : "Backend API not reachable. Start the server on port 3000.",
+        variant: "error",
+        durationMs: 3600,
+      });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -130,8 +170,12 @@ export function BookingPage() {
                 onChange={(e) => setRemarks(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn--primary">
-              Submit Request
+            <button
+              type="submit"
+              className="btn btn--primary"
+              disabled={submitting}
+            >
+              {submitting ? "Submitting…" : "Submit Request"}
             </button>
           </form>
           <div
