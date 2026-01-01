@@ -8,8 +8,8 @@ export function HomePage() {
           <div className="hero__copy">
             <h1>Discover Your Signature Colors, Illuminate Your Style</h1>
             <p>
-              Personal color analysis powered by AI and expert advice to help
-              you shop makeup & outfits with confidence.
+              Personal color analysis powered by AI and expert advice to help you shop makeup &
+              outfits with confidence.
             </p>
 
             <div className="hero__actions">
@@ -32,16 +32,10 @@ export function HomePage() {
             <div className="gradient-shell">
               <div className="gradient-shell__inner hero-card">
                 <div className="hero-card__top">
-                  <img
-                    className="hero-card__photo"
-                    src="input/image1.webp"
-                    alt=""
-                  />
+                  <img className="hero-card__photo" src="input/image1.webp" alt="" />
                   <div>
                     <div className="hero-card__title">Warm Autumn</div>
-                    <div className="hero-card__subtitle">
-                      Warm · Rich · Earthy
-                    </div>
+                    <div className="hero-card__subtitle">Warm · Rich · Earthy</div>
                   </div>
                 </div>
 
@@ -70,10 +64,9 @@ export function HomePage() {
           <div className="intro-text">
             <h2>About ColorSnap</h2>
             <p>
-              ColorSnap uses advanced AI algorithms to generate personalized
-              color palettes for you, supported by professional color
-              consultants. Whether you're updating your wardrobe or choosing
-              makeup, we help you find the perfect colors that suit you best.
+              ColorSnap uses advanced AI algorithms to generate personalized color palettes for you,
+              supported by professional color consultants. Whether you're updating your wardrobe or
+              choosing makeup, we help you find the perfect colors that suit you best.
             </p>
             <Link to="/about">Learn More</Link>
           </div>
@@ -94,10 +87,7 @@ export function HomePage() {
         </div>
         <div className="feature">
           <h3>Expert Guidance</h3>
-          <p>
-            Schedule one-on-one video consultations to receive professional
-            advice.
-          </p>
+          <p>Schedule one-on-one video consultations to receive professional advice.</p>
         </div>
       </section>
 
@@ -110,5 +100,3 @@ export function HomePage() {
     </>
   );
 }
-
-

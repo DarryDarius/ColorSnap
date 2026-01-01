@@ -73,7 +73,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       const timer = window.setTimeout(() => removeToast(id), durationMs);
       timersRef.current.set(id, timer);
     },
-    [removeToast],
+    [removeToast]
   );
 
   const value = useMemo<ToastContextValue>(() => ({ pushToast }), [pushToast]);
@@ -110,5 +110,3 @@ export function useToast(): ToastContextValue {
   }
   return ctx;
 }
-
-

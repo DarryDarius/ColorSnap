@@ -32,7 +32,7 @@ export function ResultPage() {
       { name: "Deep Teal", hex: "#0F766E" },
       { name: "Cream", hex: "#F5E6C8" },
     ],
-    [],
+    []
   );
 
   async function copyText(text: string) {
@@ -150,8 +150,8 @@ export function ResultPage() {
                 <div className="kicker">Your season</div>
                 <h2 className="result-title">Warm Autumn</h2>
                 <p className="result-subtitle">
-                  Warm undertone + earthy saturation. Best colors are warm,
-                  grounded, and slightly muted.
+                  Warm undertone + earthy saturation. Best colors are warm, grounded, and slightly
+                  muted.
                 </p>
 
                 <div className="result-facts">
@@ -168,18 +168,10 @@ export function ResultPage() {
                   >
                     Upload another
                   </button>
-                  <button
-                    type="button"
-                    className="btn btn--ghost"
-                    onClick={onShare}
-                  >
+                  <button type="button" className="btn btn--ghost" onClick={onShare}>
                     Share link
                   </button>
-                  <button
-                    type="button"
-                    className="btn btn--primary"
-                    onClick={onDownloadShareCard}
-                  >
+                  <button type="button" className="btn btn--primary" onClick={onDownloadShareCard}>
                     Download share card
                   </button>
                 </div>
@@ -187,15 +179,9 @@ export function ResultPage() {
 
               <div className="result-card__right">
                 {uploadedPhoto ? (
-                  <img
-                    className="result-photo"
-                    src={uploadedPhoto}
-                    alt="Uploaded Photo"
-                  />
+                  <img className="result-photo" src={uploadedPhoto} alt="Uploaded Photo" />
                 ) : (
-                  <div className="result-photo result-photo--empty">
-                    No uploaded photo detected
-                  </div>
+                  <div className="result-photo result-photo--empty">No uploaded photo detected</div>
                 )}
 
                 <div className="palette-header">
@@ -224,9 +210,7 @@ export function ResultPage() {
                     </button>
                   ))}
                 </div>
-                <div className="palette-hint">
-                  Tap a color to copy its hex code.
-                </div>
+                <div className="palette-hint">Tap a color to copy its hex code.</div>
               </div>
             </div>
           </div>
@@ -238,15 +222,13 @@ export function ResultPage() {
             <div className="guidance-card">
               <div className="guidance-card__title">Makeup</div>
               <div className="guidance-card__text">
-                Pick warm lipsticks (terracotta, brick) and peachy blushes. Avoid
-                icy pinks.
+                Pick warm lipsticks (terracotta, brick) and peachy blushes. Avoid icy pinks.
               </div>
             </div>
             <div className="guidance-card">
               <div className="guidance-card__title">Clothing</div>
               <div className="guidance-card__text">
-                Choose camel, olive, warm brown. Prefer softer contrast over
-                stark black/white.
+                Choose camel, olive, warm brown. Prefer softer contrast over stark black/white.
               </div>
             </div>
             <div className="guidance-card">
@@ -304,17 +286,11 @@ export function ResultPage() {
 
           <div className="cosmetics-grid">
             {filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="product-card"
-                data-category={product.category}
-              >
+              <div key={product.id} className="product-card" data-category={product.category}>
                 <img src={product.image} alt={product.name} />
                 <h3>{product.name}</h3>
                 <p>
-                  <strong>
-                    {product.category === "eyeshadow" ? "Shades:" : "Shade:"}
-                  </strong>{" "}
+                  <strong>{product.category === "eyeshadow" ? "Shades:" : "Shade:"}</strong>{" "}
                   {product.shadeOrShades}
                 </p>
                 <p>
@@ -356,5 +332,3 @@ export function ResultPage() {
     </div>
   );
 }
-
-

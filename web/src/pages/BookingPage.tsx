@@ -12,10 +12,7 @@ export function BookingPage() {
   const location = useLocation();
   const { pushToast } = useToast();
 
-  const expertParam = useMemo(
-    () => getQueryParam(location.search, "expert"),
-    [location.search],
-  );
+  const expertParam = useMemo(() => getQueryParam(location.search, "expert"), [location.search]);
 
   const experts = useMemo(
     () => [
@@ -31,7 +28,7 @@ export function BookingPage() {
       { id: "ex10", name: "Talia Kim", title: "Seoul, South Korea" },
       { id: "ex11", name: "Olivia Bennett", title: "San Francisco, USA" },
     ],
-    [],
+    []
   );
 
   const selectedExpert = useMemo(() => {
@@ -39,9 +36,7 @@ export function BookingPage() {
     return experts.find((e) => e.id === expertParam) ?? null;
   }, [expertParam, experts]);
 
-  const bookingImage = expertParam
-    ? `images/${expertParam}.jpg`
-    : "images/booking1.jpg";
+  const bookingImage = expertParam ? `images/${expertParam}.jpg` : "images/booking1.jpg";
 
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
@@ -170,11 +165,7 @@ export function BookingPage() {
                 onChange={(e) => setRemarks(e.target.value)}
               />
             </div>
-            <button
-              type="submit"
-              className="btn btn--primary"
-              disabled={submitting}
-            >
+            <button type="submit" className="btn btn--primary" disabled={submitting}>
               {submitting ? "Submitting…" : "Submit Request"}
             </button>
           </form>
@@ -183,8 +174,8 @@ export function BookingPage() {
             id="successMessage"
             style={{ display: submitted ? "block" : "none" }}
           >
-            <i>✅</i> Thank you for your request! Our consultant will contact
-            you soon to confirm the appointment.
+            <i>✅</i> Thank you for your request! Our consultant will contact you soon to confirm
+            the appointment.
           </div>
         </div>
       </div>
@@ -195,5 +186,3 @@ export function BookingPage() {
     </section>
   );
 }
-
-

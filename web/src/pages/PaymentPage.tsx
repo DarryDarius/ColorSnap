@@ -85,9 +85,7 @@ export function PaymentPage() {
               onChange={(e) => setCardName(e.target.value)}
               aria-invalid={errors.cardName ? "true" : "false"}
             />
-            {errors.cardName ? (
-              <div className="form-error">{errors.cardName}</div>
-            ) : null}
+            {errors.cardName ? <div className="form-error">{errors.cardName}</div> : null}
           </div>
           <div className="form-group">
             <label htmlFor="cardNumber">Credit Card Number</label>
@@ -104,9 +102,7 @@ export function PaymentPage() {
               onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
               aria-invalid={errors.cardNumber ? "true" : "false"}
             />
-            {errors.cardNumber ? (
-              <div className="form-error">{errors.cardNumber}</div>
-            ) : null}
+            {errors.cardNumber ? <div className="form-error">{errors.cardNumber}</div> : null}
           </div>
           <div className="form-row">
             <div className="form-group">
@@ -120,9 +116,7 @@ export function PaymentPage() {
                 onChange={(e) => setExpiry(e.target.value)}
                 aria-invalid={errors.expiry ? "true" : "false"}
               />
-              {errors.expiry ? (
-                <div className="form-error">{errors.expiry}</div>
-              ) : null}
+              {errors.expiry ? <div className="form-error">{errors.expiry}</div> : null}
             </div>
             <div className="form-group">
               <label htmlFor="cvv">CVV</label>
@@ -136,9 +130,7 @@ export function PaymentPage() {
                 autoComplete="cc-csc"
                 maxLength={4}
                 value={cvv}
-                onChange={(e) =>
-                  setCvv(e.target.value.replace(/\D/g, "").slice(0, 4))
-                }
+                onChange={(e) => setCvv(e.target.value.replace(/\D/g, "").slice(0, 4))}
                 aria-invalid={errors.cvv ? "true" : "false"}
               />
               {errors.cvv ? <div className="form-error">{errors.cvv}</div> : null}
@@ -156,6 +148,3 @@ export function PaymentPage() {
     </div>
   );
 }
-
-
-

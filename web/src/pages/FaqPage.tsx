@@ -118,12 +118,12 @@ export function FaqPage() {
         a: "Nope! You can try the basic analysis without signing up. If you choose to save your results or book a consultation, we may ask for minimal info to make the experience smoother—but never more than necessary.",
       },
     ],
-    [],
+    []
   );
 
   const categories = useMemo<FaqCategory[]>(
     () => ["Getting started", "Accuracy", "Privacy", "Sharing", "Pricing"],
-    [],
+    []
   );
 
   const [query, setQuery] = useState("");
@@ -188,10 +188,7 @@ export function FaqPage() {
         </div>
       ) : (
         filtered.map(({ faq, idx }) => (
-          <div
-            key={faq.q}
-            className={`faq-item ${open.has(idx) ? "active" : ""}`}
-          >
+          <div key={faq.q} className={`faq-item ${open.has(idx) ? "active" : ""}`}>
             <div className="faq-question" onClick={() => toggle(idx)}>
               <span className="faq-qtext">{faq.q}</span>
               <span className="faq-tag">{faq.category}</span>
@@ -203,5 +200,3 @@ export function FaqPage() {
     </section>
   );
 }
-
-

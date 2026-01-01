@@ -65,5 +65,3 @@ export function addToCart(item: CartItem): void {
 export function clearCart(): void {
   setCart([]);
 }
-
-

@@ -17,5 +17,3 @@ export type CartItem = {
   price: number;
   description: string;
 };
-
-

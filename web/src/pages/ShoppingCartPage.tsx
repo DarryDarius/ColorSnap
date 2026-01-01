@@ -16,10 +16,7 @@ export function ShoppingCartPage() {
     setCartItemsState(getCart());
   }, []);
 
-  const total = useMemo(
-    () => cartItems.reduce((sum, item) => sum + item.price, 0),
-    [cartItems],
-  );
+  const total = useMemo(() => cartItems.reduce((sum, item) => sum + item.price, 0), [cartItems]);
 
   function onClearCart() {
     setConfirmClearOpen(true);
@@ -87,12 +84,7 @@ export function ShoppingCartPage() {
         </div>
 
         <div className="actions">
-          <button
-            id="checkoutBtn"
-            type="button"
-            className="btn btn--primary"
-            onClick={onCheckout}
-          >
+          <button id="checkoutBtn" type="button" className="btn btn--primary" onClick={onCheckout}>
             Checkout
           </button>
           <button
@@ -128,5 +120,3 @@ export function ShoppingCartPage() {
     </div>
   );
 }
-
-

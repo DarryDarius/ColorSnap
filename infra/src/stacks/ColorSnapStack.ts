@@ -56,8 +56,7 @@ export class ColorSnapStack extends cdk.Stack {
     });
 
     // ---------- HTTPS (optional) ----------
-    const enableHttps =
-      (this.node.tryGetContext("enableHttps") as string | undefined) === "true";
+    const enableHttps = (this.node.tryGetContext("enableHttps") as string | undefined) === "true";
 
     // TODO(you): To enable HTTPS + custom domain, you must:
     // 1) Buy/own a domain and host it in Route53
@@ -120,27 +119,23 @@ export class ColorSnapStack extends cdk.Stack {
       containerPort: 3000,
     });
 
-    const fargate = new ecsPatterns.ApplicationLoadBalancedFargateService(
-      this,
-      "FargateService",
-      {
-        serviceName: `${projectName}-service`,
-        cluster,
-        taskDefinition,
-        publicLoadBalancer: true,
-        // Best practice: tasks in private subnets.
-        taskSubnets: { subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS },
-        desiredCount: 1,
-        healthCheckGracePeriod: Duration.seconds(30),
-        assignPublicIp: false,
+    const fargate = new ecsPatterns.ApplicationLoadBalancedFargateService(this, "FargateService", {
+      serviceName: `${projectName}-service`,
+      cluster,
+      taskDefinition,
+      publicLoadBalancer: true,
+      // Best practice: tasks in private subnets.
+      taskSubnets: { subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS },
+      desiredCount: 1,
+      healthCheckGracePeriod: Duration.seconds(30),
+      assignPublicIp: false,
 
-        // HTTPS (optional)
-        domainName: enableHttps ? domainName : undefined,
-        domainZone: enableHttps ? zone : undefined,
-        certificate: enableHttps ? certificate : undefined,
-        redirectHTTP: enableHttps,
-      },
-    );
+      // HTTPS (optional)
+      domainName: enableHttps ? domainName : undefined,
+      domainZone: enableHttps ? zone : undefined,
+      certificate: enableHttps ? certificate : undefined,
+      redirectHTTP: enableHttps,
+    });
 
     fargate.targetGroup.configureHealthCheck({
       path: "/healthz",
@@ -178,5 +173,3 @@ export class ColorSnapStack extends cdk.Stack {
     // This is intentionally left as a TODO to avoid accidentally creating costly resources.
   }
 }
-
-

@@ -17,7 +17,7 @@ export function AnalysisPage() {
 
   const analyzeDisabled = useMemo(
     () => !previewDataUrl || isAnalyzing,
-    [previewDataUrl, isAnalyzing],
+    [previewDataUrl, isAnalyzing]
   );
 
   const steps = useMemo(
@@ -27,7 +27,7 @@ export function AnalysisPage() {
       { label: "Analyze", description: "Undertone & contrast" },
       { label: "Result", description: "Palette & tips" },
     ],
-    [],
+    []
   );
 
   const currentStep = useMemo(() => {
@@ -109,8 +109,8 @@ export function AnalysisPage() {
             <div className="analysis-card__header">
               <h2>AI Color Analysis</h2>
               <p>
-                Upload a clear frontal selfie in natural light. We’ll generate a
-                palette + styling tips you can apply immediately.
+                Upload a clear frontal selfie in natural light. We’ll generate a palette + styling
+                tips you can apply immediately.
               </p>
             </div>
 
@@ -139,18 +139,12 @@ export function AnalysisPage() {
               />
 
               {previewDataUrl ? (
-                <img
-                  className="dropzone__preview"
-                  src={previewDataUrl}
-                  alt="Preview"
-                />
+                <img className="dropzone__preview" src={previewDataUrl} alt="Preview" />
               ) : (
                 <div className="dropzone__empty">
                   <div className="dropzone__icon">📸</div>
                   <div className="dropzone__title">Drag & drop a selfie</div>
-                  <div className="dropzone__sub">
-                    or choose a photo from your device
-                  </div>
+                  <div className="dropzone__sub">or choose a photo from your device</div>
                 </div>
               )}
 
@@ -186,15 +180,10 @@ export function AnalysisPage() {
               <div className="analysis-progress card card--solid">
                 <div className="analysis-progress__row">
                   <div className="analysis-progress__label">{stageText}</div>
-                  <div className="analysis-progress__pct">
-                    {Math.round(progress)}%
-                  </div>
+                  <div className="analysis-progress__pct">{Math.round(progress)}%</div>
                 </div>
                 <div className="progress-bar" aria-hidden="true">
-                  <div
-                    className="progress-bar__fill"
-                    style={{ width: `${progress}%` }}
-                  />
+                  <div className="progress-bar__fill" style={{ width: `${progress}%` }} />
                 </div>
               </div>
             ) : null}
@@ -220,8 +209,8 @@ export function AnalysisPage() {
 
             <div className="analysis-privacy">
               <span className="analysis-privacy__badge">🔒 Privacy</span>
-              This demo stores your uploaded photo locally in your browser
-              (localStorage) to show it on the result page.
+              This demo stores your uploaded photo locally in your browser (localStorage) to show it
+              on the result page.
             </div>
           </div>
         </div>
@@ -229,5 +218,3 @@ export function AnalysisPage() {
     </div>
   );
 }
-
-

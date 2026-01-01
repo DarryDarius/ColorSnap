@@ -36,5 +36,3 @@ export function App() {
     </ToastProvider>
   );
 }
-
-

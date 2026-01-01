@@ -94,7 +94,7 @@ export function ConsultationPage() {
         bio: "Olivia focuses on soft summer and cool neutral palettes with 4 years of experience. With expertise in wardrobe styling and personal branding, she creates looks that are fresh and polished.",
       },
     ],
-    [],
+    []
   );
 
   const filteredExperts = useMemo(() => {
@@ -113,10 +113,9 @@ export function ConsultationPage() {
     <section className="consultation-section">
       <h2>Expert Consultation</h2>
       <p>
-        Our professional color consultants provide one-on-one consultation via
-        video call, offering personalized advice based on your color palette
-        results. Choose an expert below to learn more about their approach and
-        schedule your consultation.
+        Our professional color consultants provide one-on-one consultation via video call, offering
+        personalized advice based on your color palette results. Choose an expert below to learn
+        more about their approach and schedule your consultation.
       </p>
 
       <div style={{ maxWidth: 520, margin: "0 auto 18px" }}>
@@ -132,11 +131,7 @@ export function ConsultationPage() {
       <div className="experts-grid">
         {filteredExperts.map((expert) => (
           <div key={expert.id} className="expert-card">
-            <img
-              className="photo"
-              src={`images/${expert.id}.jpg`}
-              alt={expert.name}
-            />
+            <img className="photo" src={`images/${expert.id}.jpg`} alt={expert.name} />
             <h3>
               <span className="icon">{expert.icon}</span> {expert.name}
             </h3>
@@ -155,5 +150,3 @@ export function ConsultationPage() {
     </section>
   );
 }
-
-

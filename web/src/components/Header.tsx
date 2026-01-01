@@ -1,12 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 
-function navLinkClassName({
-  isActive,
-  isPending,
-}: {
-  isActive: boolean;
-  isPending: boolean;
-}) {
+function navLinkClassName({ isActive, isPending }: { isActive: boolean; isPending: boolean }) {
   if (isPending) return undefined;
   return isActive ? "active" : undefined;
 }
@@ -56,5 +50,3 @@ export function Header() {
     </header>
   );
 }
-
-

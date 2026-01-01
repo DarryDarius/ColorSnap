@@ -15,6 +15,9 @@ concurrency:
 
 env:
   TASK_DEFINITION_TEMPLATE: infra/ecs/task-definition.json
+  # Prefer Secrets, fall back to Actions Variables (Repo Settings -> Secrets and variables -> Actions)
+  AWS_REGION: ${{ secrets.AWS_REGION || vars.AWS_REGION }}
+  AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN || vars.AWS_ROLE_ARN }}
 
 jobs:
   deploy:
@@ -23,6 +26,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Validate required AWS settings
+        run: |
+          set -euo pipefail
+          if [ -z "${AWS_REGION:-}" ]; then
+            echo "Missing AWS region. Set Actions Secret AWS_REGION (recommended) or Actions Variable AWS_REGION."
+            exit 1
+          fi
+          if [ -z "${AWS_ROLE_ARN:-}" ]; then
+            echo "Missing AWS role ARN. Set Actions Secret AWS_ROLE_ARN (recommended) or Actions Variable AWS_ROLE_ARN."
+            exit 1
+          fi
 
       # TODO(you): Create an IAM Role in AWS that GitHub Actions can assume via OIDC.
       # Best practice is OIDC, not long-lived access keys.
@@ -40,8 +55,8 @@ jobs:
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -64,7 +79,7 @@ jobs:
 
       - name: Prepare task definition (fill in role ARNs + region)
         env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_REGION: ${{ env.AWS_REGION }}
           EXEC_ROLE_ARN: ${{ secrets.ECS_TASK_EXECUTION_ROLE_ARN }}
           TASK_ROLE_ARN: ${{ secrets.ECS_TASK_ROLE_ARN }}
         run: |

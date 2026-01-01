@@ -99,7 +99,5 @@ export const RECOMMENDED_PRODUCTS: RecommendedProduct[] = [
     price: 13.5,
     description:
       "A smooth, blendable matte shadow in deep chestnut brown—ideal for defining the crease or smoking out the lash line.",
-  }
+  },
 ];
-
-

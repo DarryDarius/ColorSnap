@@ -4,5 +4,3 @@
     "@aws-cdk/core:checkSecretUsage": true
   }
 }
-
-

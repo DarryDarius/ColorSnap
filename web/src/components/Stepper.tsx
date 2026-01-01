@@ -13,8 +13,7 @@ export function Stepper({
   return (
     <div className="stepper" role="list" aria-label="Progress">
       {steps.map((step, idx) => {
-        const status =
-          idx < currentStep ? "done" : idx === currentStep ? "active" : "todo";
+        const status = idx < currentStep ? "done" : idx === currentStep ? "active" : "todo";
         return (
           <div
             key={step.label}
@@ -24,9 +23,7 @@ export function Stepper({
             <div className="stepper__dot" aria-hidden="true" />
             <div className="stepper__text">
               <div className="stepper__label">{step.label}</div>
-              {step.description ? (
-                <div className="stepper__desc">{step.description}</div>
-              ) : null}
+              {step.description ? <div className="stepper__desc">{step.description}</div> : null}
             </div>
           </div>
         );
@@ -34,5 +31,3 @@ export function Stepper({
     </div>
   );
 }
-
-

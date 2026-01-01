@@ -1,0 +1,25 @@
+# Dependencies
+**/node_modules/**
+
+# Build output
+**/dist/**
+**/.vite/**
+**/cdk.out/**
+
+# Lockfiles
+**/package-lock.json
+**/pnpm-lock.yaml
+**/yarn.lock
+
+# Assets
+**/images/**
+**/*.jpg
+**/*.jpeg
+**/*.png
+**/*.gif
+**/*.webp
+
+# Misc
+**/.DS_Store
+
+

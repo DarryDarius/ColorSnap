@@ -27,7 +27,9 @@ function createId() {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
 
-function validateBookingInput(body: unknown): { ok: true; value: BookingRequestInput } | { ok: false; error: string } {
+function validateBookingInput(
+  body: unknown
+): { ok: true; value: BookingRequestInput } | { ok: false; error: string } {
   if (!body || typeof body !== "object") return { ok: false, error: "Invalid JSON body." };
   const obj = body as Record<string, unknown>;
 
@@ -115,8 +117,7 @@ const __dirname = path.dirname(__filename);
  * In Docker we copy `web/dist` into `server/public`, so the default works.
  * TODO(you): If you change the Docker layout, update STATIC_DIR accordingly.
  */
-const STATIC_DIR =
-  process.env.STATIC_DIR ?? path.join(__dirname, "..", "public");
+const STATIC_DIR = process.env.STATIC_DIR ?? path.join(__dirname, "..", "public");
 
 app.use(express.static(STATIC_DIR, { maxAge: "1h", index: false }));
 
@@ -136,5 +137,3 @@ app.listen(port, host, () => {
   console.log(`[server] listening on http://${host}:${port}`);
   console.log(`[server] serving static from: ${STATIC_DIR}`);
 });
-
-

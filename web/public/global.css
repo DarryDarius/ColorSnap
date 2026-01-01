@@ -31,11 +31,7 @@
   --warning: #e2e2e2;
 
   --gradient-brand: linear-gradient(135deg, #f96ed6, #eff66f);
-  --gradient-soft: linear-gradient(
-    135deg,
-    rgba(249, 110, 214, 0.22),
-    rgba(239, 246, 111, 0.18)
-  );
+  --gradient-soft: linear-gradient(135deg, rgba(249, 110, 214, 0.22), rgba(239, 246, 111, 0.18));
 }
 
 /* Reset */
@@ -161,7 +157,10 @@ button,
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.12s ease, filter 0.2s ease, background 0.3s ease;
+  transition:
+    transform 0.12s ease,
+    filter 0.2s ease,
+    background 0.3s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -1961,5 +1960,3 @@ footer p {
     justify-content: center;
   }
 }
-
-
