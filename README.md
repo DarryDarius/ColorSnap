@@ -157,9 +157,9 @@ You must first:
 
 Then deploy with context values (see TODO in `infra/src/stacks/ColorSnapStack.ts`).
 
-### 3) CI/CD (GitHub Actions → ECR → ECS)
+### 3) CI/CD (optional; disabled by default to avoid AWS costs)
 
-Workflow: `.github/workflows/deploy-ecs.yml`
+Workflow (disabled copy): `.github/workflows-disabled/deploy-ecs.yml`
 
 TODO: You must configure GitHub → AWS permissions. Best practice is **OIDC**:
 - Create an IAM role for GitHub Actions to assume

@@ -1,7 +1,11 @@
-name: Deploy to AWS ECS (Fargate)
+name: Deploy to AWS ECS (Fargate) [DISABLED]
+
+# This workflow is intentionally disabled to avoid accidental AWS costs.
+# To re-enable:
+# - Move this file back to `.github/workflows/deploy-ecs.yml`
+# - Commit + push
 
 on:
-  # Manual deploy to avoid accidental AWS costs.
   workflow_dispatch:
 
 # Required for GitHub OIDC -> AWS role assumption
