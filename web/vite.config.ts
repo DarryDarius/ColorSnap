@@ -2,6 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
+  // Make built assets work on GitHub Pages / any subpath (relative URLs).
+  base: "./",
   plugins: [react()],
   server: {
     /**

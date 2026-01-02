@@ -1,8 +1,8 @@
 name: Deploy to AWS ECS (Fargate)
 
 on:
-  push:
-    branches: ["main"]
+  # Manual deploy to avoid accidental AWS costs.
+  workflow_dispatch:
 
 # Required for GitHub OIDC -> AWS role assumption
 permissions:

@@ -87,6 +87,37 @@ TODO: commit lockfiles for reproducible builds.
 
 ## AWS deployment (ECS Fargate + ALB + ECR) — real “dynamic” hosting
 
+## Low-cost deployment options (recommended for resumes)
+
+You can run this project in **two modes**, depending on your needs:
+
+- **Static mode (free hosting)**: deploy `web/` to **GitHub Pages** (or Cloudflare Pages / Netlify).
+  - Great for a portfolio link and costs ~$0.
+  - Most pages work without a backend.
+  - The booking submission (`POST /api/bookings`) requires an API host (see below).
+- **Dynamic mode (full stack)**: deploy the containerized app to **AWS ECS Fargate** via CDK.
+  - More “real backend” realism, but it can incur AWS costs (ALB/NAT/Fargate).
+
+### Static hosting: GitHub Pages (Frontend only)
+
+1) Enable GitHub Pages for the repo:
+- Repo → **Settings** → **Pages**
+- Source: **GitHub Actions**
+
+2) Push to `main` and the workflow will publish the site:
+- Workflow: `.github/workflows/deploy-pages.yml`
+
+3) Optional: connect to an external API host
+
+The frontend supports an optional build-time env var:
+- `VITE_API_BASE_URL` (example: `https://your-api.example.com`)
+
+If you set it in GitHub:
+- Repo → **Settings** → **Secrets and variables** → **Actions** → **Variables**
+- Add `VITE_API_BASE_URL`
+
+Then the static site can call `VITE_API_BASE_URL + /api/*` (useful for Vercel/Netlify/Workers/Lambda APIs).
+
 ### What you get
 
 - ALB as the public entrypoint (HTTP/optional HTTPS)
@@ -101,6 +132,7 @@ TODO: commit lockfiles for reproducible builds.
 - AWS account + AWS CLI credentials configured locally
 - Node.js 18+
 - (Recommended) a dedicated AWS account/region for this project
+  - Cost note: ALB/NAT/Fargate can incur charges. Remember to `cdk destroy` when done.
 
 ### 1) Deploy the infrastructure once (CDK)
 
@@ -140,7 +172,7 @@ TODO: You must configure GitHub → AWS permissions. Best practice is **OIDC**:
   - `ECS_TASK_EXECUTION_ROLE_ARN`
   - `ECS_TASK_ROLE_ARN`
 
-On every push to `main`, CI/CD will:
+When you run the workflow manually (GitHub → Actions), CI/CD will:
 1) Build the Docker image
 2) Push it to ECR
 3) Register a new task definition and deploy it to the ECS service

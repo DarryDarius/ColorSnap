@@ -1,5 +1,8 @@
 .DS_Store
 
+# Local npm cache (we used a project-local HOME during installs)
+.npm-home/
+
 # Node / Vite
 node_modules/
 web/node_modules/
@@ -10,6 +13,9 @@ server/dist/
 infra/node_modules/
 infra/dist/
 infra/cdk.out/
+
+# CDK context (account/region-specific lookups)
+infra/cdk.context.json
 
 # Logs
 npm-debug.log*

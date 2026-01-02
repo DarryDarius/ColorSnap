@@ -8,6 +8,13 @@ function getQueryParam(search: string, param: string): string | null {
   return urlParams.get(param);
 }
 
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "").trim().replace(/\/$/, "");
+
+function apiUrl(path: string) {
+  if (!API_BASE_URL) return path;
+  return `${API_BASE_URL}${path.startsWith("/") ? "" : "/"}${path}`;
+}
+
 export function BookingPage() {
   const location = useLocation();
   const { pushToast } = useToast();
@@ -53,7 +60,8 @@ export function BookingPage() {
     try {
       // Dynamic deployment: submit to backend API
       // NOTE: In local dev, Vite proxies /api to http://localhost:3000 (see `web/vite.config.ts`).
-      const res = await fetch("/api/bookings", {
+      // Static deployment (GitHub Pages): set VITE_API_BASE_URL to point to your serverless/API host.
+      const res = await fetch(apiUrl("/api/bookings"), {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -89,7 +97,7 @@ export function BookingPage() {
         message:
           err instanceof Error
             ? err.message
-            : "Backend API not reachable. Start the server on port 3000.",
+            : "Backend API not reachable. If you're using static hosting, deploy an API and set VITE_API_BASE_URL.",
         variant: "error",
         durationMs: 3600,
       });
